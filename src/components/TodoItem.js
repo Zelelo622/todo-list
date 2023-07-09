@@ -1,11 +1,9 @@
 import { observer } from "mobx-react";
 import React, { useState } from "react";
 
-const TodoItem = observer(({ todo, onRemove, onComplete, onUpdate }) => {
+const TodoItem = observer(({ todo, onRemove, onComplete, onUpdate, className }) => {
   const [title, setTitle] = useState(todo.title);
   const [isEdit, setIsEdit] = useState(false);
-
-  console.log(todo)
 
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
@@ -36,7 +34,7 @@ const TodoItem = observer(({ todo, onRemove, onComplete, onUpdate }) => {
   };
 
   return (
-    <div className={`todo__item ${todo.completed ? "completed" : ""}`}>
+    <div className={`todo__item ${todo.completed ? "completed" : ""} ${todo.className}`}>
       <div className="todo__item-complete">
         <div
           className={`todo__custom-checkbox${todo.completed ? " checked" : ""}`}

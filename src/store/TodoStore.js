@@ -3,6 +3,8 @@ import { makeAutoObservable } from "mobx";
 export default class TodoStore {
   constructor() {
     this._todos = [];
+    this._evenButtonClick = false;
+    this._oddButtonClick = false;
     makeAutoObservable(this);
   }
 
@@ -49,8 +51,26 @@ export default class TodoStore {
     this._todos = todos;
   }
 
+  setEvenButtonClick(evenButtonClick) {
+    this._evenButtonClick = evenButtonClick;
+    this._updateIndexes();
+  }
+
+  setOddButtonClick(oddButtonClick) {
+    this._oddButtonClick = oddButtonClick;
+    this._updateIndexes();
+  }
+
   get todos() {
     return this._todos;
+  }
+
+  get evenButtonClick() {
+    return this._evenButtonClick;
+  }
+
+  get oddButtonClick() {
+    return this._oddButtonClick;
   }
 
   _findIndex(id) {
@@ -62,6 +82,9 @@ export default class TodoStore {
       ...todo,
       isEven: index % 2 !== 0,
       isOdd: index % 2 === 0,
+      className:
+        (this.evenButtonClick && index % 2 !== 0 ? "evenStyle" : "") +
+        (this.oddButtonClick && index % 2 === 0 ? " oddStyle" : ""),
     }));
   }
 }
