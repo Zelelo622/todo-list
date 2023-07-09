@@ -18,7 +18,9 @@ export default class TodoStore {
   completedTodoItem(id, bool) {
     const index = this._findIndex(id);
     if (index !== -1) {
-      this._todos[index].completed = bool;
+      const [todo] = this._todos.splice(index, 1);
+      todo.completed = bool;
+      this._todos.push(todo);
     }
   }
 
