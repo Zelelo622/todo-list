@@ -213,6 +213,16 @@
   border-right: 2px solid #3d5afd;
 }
 
+@media (max-width: 550px) {
+  .todo__input-add {
+    width: auto;
+  }
+
+  .todo__text {
+    width: 100%;
+  }
+}
+
 @media (max-width: 420px) {
   .container {
     padding: 0 10px;
