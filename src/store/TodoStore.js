@@ -8,11 +8,13 @@ export default class TodoStore {
 
   addTodoItem(id, title) {
     this._todos.push({ id, title, completed: false });
+    this._updateIndexes();
   }
 
   removeTodoItem(id) {
     const index = this._findIndex(id);
     this._todos.splice(index, 1);
+    this._updateIndexes();
   }
 
   completedTodoItem(id, bool) {
@@ -21,6 +23,7 @@ export default class TodoStore {
       const [todo] = this._todos.splice(index, 1);
       todo.completed = bool;
       this._todos.push(todo);
+      this._updateIndexes();
     }
   }
 
@@ -28,15 +31,18 @@ export default class TodoStore {
     const index = this._findIndex(id);
     if (index !== -1) {
       this._todos[index] = updateTodoItem;
+      this._updateIndexes();
     }
   }
 
-  removeLastTodoItem () {
+  removeLastTodoItem() {
     this._todos.pop();
+    this._updateIndexes();
   }
 
-  removeFirstTodoItem () {
+  removeFirstTodoItem() {
     this._todos.shift();
+    this._updateIndexes();
   }
 
   setTodos(todos) {
@@ -51,11 +57,11 @@ export default class TodoStore {
     return this._todos.findIndex((todo) => todo.id === id);
   }
 
-  _updateEvenIndexes() {
-    return this._todos.filter((_, index) => index % 2 === 0)
-  }
-
-  _updateOddIndexes() {
-    return this._todos.filter((_, index) => index % 2 !== 0)
+  _updateIndexes() {
+    this._todos = this._todos.map((todo, index) => ({
+      ...todo,
+      isEven: index % 2 !== 0,
+      isOdd: index % 2 === 0,
+    }));
   }
 }

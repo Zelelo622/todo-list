@@ -5,6 +5,8 @@ const TodoItem = observer(({ todo, onRemove, onComplete, onUpdate }) => {
   const [title, setTitle] = useState(todo.title);
   const [isEdit, setIsEdit] = useState(false);
 
+  console.log(todo)
+
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
   };
