@@ -2,6 +2,7 @@ import React from "react";
 import AddTodoInput from "../components/AddTodoInput";
 import TodoList from "../components/TodoList";
 import { observer } from "mobx-react";
+import TodoTools from "../components/TodoTools";
 
 const HomePage = observer(() => {
   return (
@@ -11,6 +12,7 @@ const HomePage = observer(() => {
           <div className="todo__inner">
             <h1 className="todo__title">ToDo List</h1>
             <AddTodoInput />
+            <TodoTools />
             <TodoList />
           </div>
         </div>

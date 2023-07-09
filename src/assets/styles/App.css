@@ -164,6 +164,26 @@
   background-image: url(../img/cancel.svg);
 }
 
+.todo__toolse {
+  display: flex;
+  margin-bottom: 24px;
+}
+
+.todo__btn-removeLast {
+  background: rgba(30, 215, 96, 0.71);
+  border-radius: 500px;
+  padding: 8px 20px 9px;
+  font-size: 16px;
+}
+
+.todo__btn-removeFirst {
+  background: rgba(30, 215, 96, 0.71);
+  border-radius: 500px;
+  padding: 8px 20px 9px;
+  margin-left: 12px;
+  font-size: 16px;
+}
+
 .completed {
   opacity: 0.5;
   text-decoration: line-through;

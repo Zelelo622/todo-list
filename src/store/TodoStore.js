@@ -31,6 +31,14 @@ export default class TodoStore {
     }
   }
 
+  removeLastTodoItem () {
+    this._todos.pop();
+  }
+
+  removeFirstTodoItem () {
+    this._todos.shift();
+  }
+
   setTodos(todos) {
     this._todos = todos;
   }
@@ -41,5 +49,13 @@ export default class TodoStore {
 
   _findIndex(id) {
     return this._todos.findIndex((todo) => todo.id === id);
+  }
+
+  _updateEvenIndexes() {
+    return this._todos.filter((_, index) => index % 2 === 0)
+  }
+
+  _updateOddIndexes() {
+    return this._todos.filter((_, index) => index % 2 !== 0)
   }
 }
