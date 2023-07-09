@@ -8,8 +8,11 @@ const HomePage = observer(() => {
     <main className="main">
       <section className="todo">
         <div className="container">
-          <AddTodoInput />
-          <TodoList />
+          <div className="todo__inner">
+            <h1 className="todo__title">ToDo List</h1>
+            <AddTodoInput />
+            <TodoList />
+          </div>
         </div>
       </section>
     </main>

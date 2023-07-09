@@ -1,6 +1,7 @@
 import { observer } from "mobx-react";
 import React, { useContext, useState } from "react";
 import { Context } from "..";
+import AddItemSvg from "../assets/img/add-item.svg";
 
 const AddTodoInput = observer(() => {
   const { todos } = useContext(Context);
@@ -24,8 +25,8 @@ const AddTodoInput = observer(() => {
         onChange={(e) => setTitle(e.target.value)}
         className="todo__input-add"
       />
-      <button type="submit" className="todo__btn">
-        Add
+      <button type="submit" className="todo__btn-add btn">
+        <img className="todo__img" src={AddItemSvg} alt="Добавить" />
       </button>
     </form>
   );

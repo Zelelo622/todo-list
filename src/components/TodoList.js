@@ -19,7 +19,7 @@ const TodoList = observer(() => {
   };
 
   return (
-    <div>
+    <div className="todo__list">
       {todos.todos.map((todo) => (
         <TodoItem
           key={todo.id}

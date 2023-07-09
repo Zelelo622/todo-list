@@ -6,9 +6,162 @@
   margin: 0 auto;
 }
 
+.btn {
+  border: none;
+  outline: none;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn:hover {
+  opacity: 0.7;
+}
+
 .main {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
+}
+
+.todo {
+  margin-top: 32px;
+}
+
+.todo__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todo__title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 100px;
+  font-weight: 700;
+}
+
+.todo__form {
+  padding: 20px;
+  border-radius: 6px;
+  border: 1px solid #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.todo__input-add {
+  width: 300px;
+  padding: 8px 16px 8px 10px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 6px;
+  outline: none;
+  border: 1px solid #000000;
+}
+
+.todo__btn-add {
+  margin-left: 4px;
+  width: 35px;
+  height: 35px;
+}
+
+.todo__img {
+  width: 35px;
+  height: 35px;
+}
+
+.todo__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.todo__item {
+  padding: 8px 13px 8px 12px;
+  border-radius: 20px;
+  border: 2px solid #d6d6d6;
+  height: 72px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo__item-complete {
+  display: flex;
+  align-items: center;
+}
+
+.todo__checkbox {
+  display: none;
+}
+
+.todo__custom-checkbox {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #dfbd43;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.todo__custom-checkbox:hover {
+  opacity: 0.7;
+}
+
+.todo__custom-checkbox.checked {
+  background-color: #dfbd43;
+  background-image: url(../img/check-mark.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.todo__input-edit {
+  width: 300px;
+  margin-left: 14px;
+  font-size: 18px;
+  border: 1px solid #000000;
+  outline: none;
+}
+
+.todo__text {
+  width: 300px;
+  margin-left: 14px;
+  font-size: 18px;
+}
+
+.todo__btns-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 4px;
+}
+
+.todo__btn-edit {
+  background-image: url(../img/setting.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 25px;
+  height: 25px;
+}
+
+.todo__btn-remove {
+  background-image: url(../img/delete.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 25px;
+  height: 25px;
+}
+
+.todo__btn-verified {
+  background-image: url(../img/verified.svg);
+}
+
+.todo__btn-cancel {
+  background-image: url(../img/cancel.svg);
+}
+
+.completed {
+  opacity: 0.5;
+  text-decoration: line-through;
 }
 
 @media (max-width: 420px) {
