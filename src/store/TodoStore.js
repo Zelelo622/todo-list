@@ -6,24 +6,24 @@ export default class TodoStore {
     makeAutoObservable(this);
   }
 
-  addTodoItem(title) {
-    this._todos.push({ title, completed: false });
+  addTodoItem(id, title) {
+    this._todos.push({ id, title, completed: false });
   }
 
-  removeTodoItem(index) {
+  removeTodoItem(id) {
+    const index = this._findIndex(id);
     this._todos.splice(index, 1);
   }
 
-  completedTodoItem(index) {
-    const [todo] = this._todos.splice(index, 1);
-    todo.completed = true;
-    this._todos.push(todo);
+  completedTodoItem(id, bool) {
+    const index = this._findIndex(id);
+    if (index !== -1) {
+      this._todos[index].completed = bool;
+    }
   }
 
-  updateTodoItem(updateTodoItem) {
-    const index = this._todos.findIndex(
-      (todo) => todo.id === updateTodoItem.id
-    );
+  updateTodoItem(id, updateTodoItem) {
+    const index = this._findIndex(id);
     if (index !== -1) {
       this._todos[index] = updateTodoItem;
     }
@@ -35,5 +35,9 @@ export default class TodoStore {
 
   get todos() {
     return this._todos;
+  }
+
+  _findIndex(id) {
+    return this._todos.findIndex((todo) => todo.id === id);
   }
 }

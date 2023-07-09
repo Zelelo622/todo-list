@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import AddTodoInput from "../components/AddTodoInput";
 import TodoList from "../components/TodoList";
 import { observer } from "mobx-react";
